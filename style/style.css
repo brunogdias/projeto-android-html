@@ -1,0 +1,208 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap'); /* link retirado do Google Fonts pela opção @import. A fonte em si está logo abaixo dentro da pseudo-classe :root como --fonte-destaque */
+
+@font-face {   /* tag usaao quando há uma fonte baixada/instalada na mesma pasta ou sub-pasta desse documento */
+    font-family: 'Android'; /* nome escolhido para a fonte (aleatório) que poderá ser aplicado em outros seletores */
+    src: url('../fontes/idroid.otf') format('opentype'); /* src mostra o caminho que a fonte está instalada. Os dois-pontos (..) utilizados no início é para informar ao código que o arquivo da fonte está na pasta anterior; Tipos de format(): a)opentype (otf)  b)truetype (ttf)  c)embedded-opentype  d)truetype-aat e) svg */
+    font-weight: normal;
+}
+
+:root {   /* é uma seletora do tipo pseudo-classe (raíz da árvore do documento). Todas propriedades (que começam com dois traços --) colocadas dentro dessa seletora pseudo-classe servirá para todo o documento */
+    --cor0: #c5ebd6;
+    --cor1: #83e1ad;
+    --cor2: #3ddc84;
+    --cor3: #2fa866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+    --cor6: #ffffff;
+   
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;   /* Sempre deve-se colocar mais de uma fonte por questão de compatibilidade de navegadores */
+    --fonte-destaque: 'Berkshire Swash', cursive;  /* A fonte Berkshire Swash foi retirada do Google Fonts pela opção @import. A url/link dela está no início desse documento  */
+    --fonte-android: 'Android', cursive;   /* A fonte Android foi baixada e instalada no computador. A configuração dela para que possa ser utilizada está no início desse documento */
+       
+    /* Todas as propriedade globais acima sempre devem começar com dois traços (--) e o restante do nome pode ser criado da forma que quiser (cor01, cor001...). Com a criação dessas propriedade de cores, elas passarão a ser exibidas na lista de seleção de cores do código, facilitando aplicação delas. Esse formato facilita quando se replica muito uma propriedade global de css pelo documento e também quando precisa alterar, pois será aplicado a todo local que estiver com a propriedade que for alterada.  */ 
+}
+
+* {  /*  a tag asterisco aplica os estilos abaixo em todos os seletores do HTML (h1, h2, p, h3, nav, main, header...) Lembrando que as se propriedades abaixo forem aplicadas com outras medidas diretamente nos seletores, sobressairá este último  */ 
+    padding: 0px;
+    margin: 0px;
+    /* Foi aplicado preenchimento e margem 0px para retirar qualquer tamanho que é ajustado/aplicado automaticamente. É recomendando, pois agora é possível trabalhar individualmente com a margem e preenchimento de cada seletor  */
+}
+
+body {
+    background-color: var(--cor0);  /* Essa cor foi aplicada de acordo com a variável global de cores criada na seletora pseudo-classe root no início desse documento. Basta aperta ctrl + espaço e selecionar.  */
+    font-family: var(--fonte-padrao);  /* Essa fonte foi aplicada de acordo com a variável global de fontes criada na seletora pseudo-classe root no início desse documento. Basta aperta ctrl + espaço e selecionar. */
+}
+
+.externo::after { /* no código HTML todo link (tag a) dentro da tag main contém class="externo". Dessa forma, dá para aplicar a propriedade abaixo em todos de uma única vez. O sinal ::after indica que o estilo a ser aplicado é logo após o link em si.  */
+    content: '\00A0\1F517'; /* Essa propriedade permite incluir símbolos/emojis. O código completo do emoji é U+1F517. Deve-se copiar somente os nº's após o sinal de +. O código  \00A0  cria um espaço entre o emoji e o texto. Quanto mais ele se repete , maior o espaço. Exemplo '\00A0\00A0\1F517'.  Atenção: Essa propriedade não é compatível com todo navegador. */
+}
+
+header {
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5)); /* essa propriedade permite aplicar cores de fundo em dégradé. Existem várias combinações possíveis para as cores escolhidas: formato linear, radial; p/ baixo; p/ cima; p/ esquerda; p/ baixo direita e etc...  */
+    min-height: 100px;  /* altura mínima do cabeçalho. Nesse exemplo, alargou um pouco o cabeçalho  */
+    text-align: center; /* centralizar o texto do cabeçalho em relação a tela */
+    padding-top: 20px; /* aumenta o preenchimento superior do cabeçalho aumentando assim o espaço entre o título e o começo da tela, pois empurra o título para baixo */
+}
+
+header h1 {
+    color: var(--cor6); /* Essa cor foi aplicada de acordo com a seletora seletora pseudo-classe root criada no início desse documento. Basta aperta ctrl + espaço e selecionar.  */
+    font-size: 2em; /* a medida   em   é uma relação de tamanho da fonte padrão  */
+    font-family: var(--fonte-destaque); /* Essa fonte foi aplicada de acordo com a variável global de fontes criada na seletora pseudo-classe root no início desse documento. Basta aperta ctrl + espaço e selecionar. */
+    font-weight: normal; /* foi aplicado fonte com peso normal para retirar o efeito do negrito da fonte familía var(--fonte-destaque) que é muito forte e dificultava a leitura. Não afeta o formato da letra */
+    margin-bottom: 10px; /* ajuda a distanciar o  h1   do   p   no cabeçalho   */
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.267); /* para criar sombras no texto. 1ª medida sombra horizontal, 2ª medida sombra vertical, 3ª medida espalhamento da sombra e 4ª medida a cor da sombra */
+}
+
+header p {
+    font-family: var(--fonte-padrao); /* Essa fonte foi aplicada de acordo com a seletora pseudo-classe root criada no início desse documento. Basta aperta ctrl + espaço e selecionar. */
+    font-size: 1em; /* a medida   em  é  a relação do tamanho da fonte padrão */
+    color: var(--cor6); /* Essa cor foi aplicada de acordo com a seletora seletora pseudo-classe root criada no início desse documento. Basta aperta ctrl + espaço e selecionar.  */
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.315); /* para criar sombras no texto. 1ª medida sombra horizontal, 2ª medida sombra vertical, 3ª medida espalhamento da sombra e 4ª medida a cor da sombra */ 
+}
+
+nav {
+    background-color: var(--cor5); 
+    padding: 10px;
+}
+
+nav a {
+    color: var(--cor1);
+    text-decoration: none; /* retira efeitos como sublinhado permanente e etc */
+    font-weight: bold; /* deixa o texto em negrito */
+    padding: 10px; /* preenche cada texto que pertence a nav. Esse efeito cria um distanciamento entre eles */
+}
+
+nav a:hover { /* os efeitos abaixo serão aplicados quando a seta do mouse passar sobre alguma palavra que esteja no link (tag a ) dentro da tag nav */
+    background-color: var(--cor3); /* cor de fundo/preenchimento ao passar a seta sobre alguma palavra*/
+    color: var(--cor5); /* cor do texto ao passar a seta sobre alguma palavra. Às vezes imperceptível */
+    border-radius: 3px; /* arredonda a ponta do efeito ao passar a seta sobre alguma palavra */
+    transition-duration: 0.5s; /* permite configurar o tempo de duração do efeito até ele ser totalmente exibido. É mais perceptível a partir de 1s em diante */
+}
+
+main {
+    background-color: var(--cor6); 
+    margin: auto; /* alinha o conteúdo ao centro da tela mesmo aumentando ou diminuindo o tamanho da tela  */
+    margin-bottom: 30px; /* largura da margem final da tela. Ajuda a separar o conteúdo do footer (rodapé) */
+    min-width: 300px;
+    max-width: 1000px;
+    /* width (min e max) é o tamanho máximo e mínimo proposta para todo o conteúdo dentro da tag main ser exibido na tela */
+    padding: 20px; /*padding = preenchimento. Cria um preenchimento (em cor). Nesse exemplo foi para afastar o conteúdo da borda branca */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.415); /* para criar sombras. 1ª medida sombra horizontal, 2ª medida sombra vertical, 3ª medida espalhamento da sombra e 4ª medida a cor da sombra */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    /* border radius aplica um arredondamento na ponta. Nos exemplos, lado direito e esquerdo inferior */    
+}
+
+main h1 {    /*  Usando somente main h1 (sem sinal de >), todo h1 dentro de main, mesmo que esteja dentro de uma sub-tag (esse caso a tag article) receberá o estilo aplicado. O uso do sinal de > é aplicável quando se deseja informar exatamente a sub-tag "filha" por questão semântica, nesse caso a montagem seria: main > article > h1, porém é opcional  */
+    color: var(--cor5);  
+    font-family: var(--fonte-android); 
+    font-weight: normal; /* foi aplicado fonte com peso normal para retirar o efeito do negrito da fonte familía var(--font-android) que é muito forte e dificultava a leitura. Não afeta o formato da letra */
+    font-size: 1.8em; /* tamanho da fonte/letra */
+} 
+
+main h2 {
+    font-family:var(--fonte-android); 
+    color: var(--cor4);
+    font-size: 1.3em;  /* tamanho da fonte/letra */
+    font-weight: normal; /* foi aplicado fonte com peso normal para retirar o efeito do negrito da fonte familía var(--font-android) que é muito forte e dificultava a leitura. Não afeta o formato da letra */
+    background-image: linear-gradient(to right, var(--cor1), transparent); /*para aplicar cores de fundo em dégradé. Existem várias combinações possíveis para as cores escolhidas: formato linear, radial; p/ baixo; p/ cima; p/ esquerda; p/ baixo direita e etc... Neste exemplo no lugar da segunda cor, colocou-se efeito de transparência, ou seja, a cor vai se tornando transparente/fraca até ficar branca */
+    padding-left: 5px; /* aplica um preenchimento no inicio para afastar o texto um pouco da borda. Poderia também ser usado  text-indent (recuo) */
+    
+}
+
+main p {
+    margin: 15px 0px; /* 15 px correponde a margem superior e inferior. 0px corresponde margem esquerda e direita */
+    text-align: justify;
+    text-indent: 20px; /* aplica um recuo na primeira linha de todos parágrafos dentro da tag main */
+    line-height: 2em; /* espaçamento entre as linhas dos parágrafos que estiverem dentro da tag main */
+    font-size: 1em; /* tamanho da fonte/letra */
+}
+
+main strong {  /* todo o texto que estiver com a tag strong dentro de main receberá: */
+    color: var(--cor4);
+    font-weight: bold; /* negrito */
+}
+
+main a {
+    text-decoration: none; /* retira o sublinhado automatico dos links e etc */
+    font-weight: bold; /* negrito  */
+    color: var(--cor5);
+    background-color: var(--cor1); /* cor de fundo para destacar */
+    padding: 2px; /* afastar bem pouco o preenchimento do texto */
+}
+
+main a:hover {  /* efeitos abaixo serão aplicados quando a seta do mouse passar sobre alguma palavra que esteja no link (tag a)  em   main */
+    text-decoration: underline; /* sublinhado será exibido quando passar a seta do mouse sobre algum link dentro da tag main */
+}
+
+main img {
+    width: 100%; /* permite a imagem se ajustar automaticamente a 100% em relação ao tamanho da tela  */ 
+}
+
+.pequena {   /* foi criado no código html a identificação desse seletor (na tag img dentro da tag main) como class="pequena" */
+    width: 50%; /* permite a imagem se ajustar automaticamente a 50% em relação ao tamanho da tela  */ 
+    margin: auto;   /* para a centralização de uma imagem usando esse parâmetro, é preciso incluir o parâmetro display (logo abaixo) para que o código interprete a imagem como um bloco e funcione a centralização  */
+    display: block;  /* é preciso incluir esse parâmetro para que o parâmetro margin funcione para uma imagem*/
+}
+
+.video { /* foi criado no código html a identificação desse seletor (na tag div) como class="pequena" */
+    background-color: var(--cor5);
+    margin: 0px -20px 30px -20px; /* foi configurado separadamente a margem de cada canto (sentido horário), porém por ser negativa a margem ela aumenta para fora (com background-color aplicado é possível entender melhor esse efeito). */
+    padding: 20px;
+
+    position: relative; 
+    padding-bottom: 57%; /* essa porcentagem pode ser ajustada para reduzir/aumentar a faixa preta que aparece ao lado do vídeo durante sua reprodução.  Faça teste com a porcentagem do tamanho  */
+    /* os parâmetros position e padding-bottom acima, foram criados para configurar a posíção do vídeo na tela. Eles funcionam junto com todos os parâmetros abaixo dentro de  .video iframe  */
+}
+
+.video iframe { /* este seletor, neste exemplo, foi criado para configurar a posição do vídeo na tela. No parâmetro acima   .video   foi preciso colocar position: relative e padding-bottom: 57% para que os valores abaixo funcionassem corretamente */
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+/* Portanto os seletores   .video e .video frame  trabalharam em conjunto para chegar ao resultado esperado da exibição do vídeo  */
+
+aside {
+    background-color: var(--cor1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.281); /* para criar sombras. 1ª medida sombra horizontal, 2ª medida sombra vertical, 3ª medida espalhamento da sombra e 4ª medida a cor da sombra */
+}
+
+aside ul {
+    list-style-type: '\2714\00A0'; /* Esse parâmetro permite mudar o sinal padrão das listas não ordenadas por qualquer outro, como emojis. O código completo do emoji (check) é U+2714. Deve-se copiar somente os nº's após o sinal de +. O código 00A0 cria um espaço entre o emoji e o texto. Quanto mais ele se repete , maior o espaço. Exemplo '\2714\00A0\00A0'.  Atenção: Essa seletora não é compatível com todo navegador. */
+    list-style-position: inside; /* faz com que toda a estrutura da lista (principalmente os marcadores) fique dentro do conjunto da caixa da tag aside. O ideal é sempre apricar a cor background-color para facilitar a visualização dessa seletora. Nesse exemplo isso foi feito acima  */
+    columns: 2; /*  divide a lista em duas colunas */
+}
+
+aside h3 {
+    background-color: var(--cor4);
+    color: white;
+    padding: 10px;
+    margin: -10px -10px 0px -10px; /* foi configurado separadamente a margem de cada canto (sentido horário), porém por ser negativa a margem ela aumenta para fora (com background-color aplicado é possível entender melhor esse efeito). Dessa forma, a caixa do background-color da seletora h3 se encaixa com a parte superior da caixa do background  da  seletora aside  */
+    border-radius: 10px 10px 0px 0px; /* aplicou a medida estipulada na borda arredondada em cada canto (sentido horário). Nesse exemplo, somente nas bordas superiores. */
+}
+
+footer {
+    background-color: var(--cor5);
+    color: var(--cor6);
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+footer a { /* poderia também ter montado a seletora da seguinte forma: footer > a  */
+    color: white;
+    font-weight: bold;
+}
+
+footer a:hover { /* efeitos abaixo serão aplicados quando a seta do mouse passar sobre alguma palavra que esteja no link  (tag a)   na tag   main  */
+    text-decoration: underline;
+    color:var(--cor1)
+} 
+
+/* lembrando que todo texto acima em amarelo são seletores e tudo dentro deles são declarações (propriedades + valores)*/
